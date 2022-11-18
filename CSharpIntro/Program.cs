@@ -6,7 +6,7 @@
 
         string nom = DemanderString("Quel est ton nom ?");
         int age = DemanderNumeric("Quel est ton age ?");
-        int taille = DemanderNumeric("Quel est ta taille ?");
+        int taille = DemanderNumeric("Quel est ta taille ?", (v)=>v>40 && v <= 201);
 
         
         AfficherMessageResultat(nom, age, taille);
@@ -17,7 +17,7 @@
         Console.WriteLine(question);
         return Console.ReadLine();
     }
-    static int DemanderNumeric(string question) {
+    static int DemanderNumeric(string question, Func<int, bool>? checkValue = null {
         int ageNumeric = 0;
         bool lUtilisateurASaisiUnNumericPositif = false; // l'utilisateur n'a pas encore réalisé de saisie valide
 
@@ -31,7 +31,12 @@
             bool ageSaisiEstUnNumeric = int.TryParse(ageSaisi, out ageNumeric);
             // si la tentative est un succès => l'utilisateur a fait une saisie valide
             if (ageSaisiEstUnNumeric) {
-                lUtilisateurASaisiUnNumericPositif = ageNumeric >= 0;
+                if (checkValue != null) {
+                    lUtilisateurASaisiUnNumericPositif = checkValue(ageNumeric);
+                } else {
+                    lUtilisateurASaisiUnNumericPositif = ageNumeric >= 0;
+                }
+                
             } else {
                 // si la tentative de conversion est un échec, on précise que l'utilisateur n'a pas saisi de numérique 
                 Console.WriteLine("L'utilisateur n'a pas saisi un numérique");

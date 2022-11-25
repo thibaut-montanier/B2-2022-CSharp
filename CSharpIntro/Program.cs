@@ -1,4 +1,5 @@
 ﻿using CSharpIntro.Model;
+using System.Runtime.InteropServices;
 
 internal class Program {
 
@@ -20,11 +21,9 @@ internal class Program {
                 // ajout de la personne à la liste des personnes
                 mesPersonnes.Add(maPersonne);
             } else if (choix == "2") {
-                // on boucle sur l'ensemble des personnes de la liste
-                foreach(Personne personne in mesPersonnes) {
-                    // affichage de la personne issue de la liste
-                    AfficherMessagePersonne(personne);
-                }
+                AfficherMessagePersonnes(mesPersonnes);
+            } else if (choix == "3") {
+                ModifierPersonneDansListe(mesPersonnes);
             } else if (choix == "Q") {
                 Quitter= true;
             }
@@ -42,6 +41,21 @@ internal class Program {
         maPersonne.Taille = DemanderNumeric("Quel est ta taille ?");
 
         return maPersonne;
+    }
+
+
+    static void ModifierPersonneDansListe(List<Personne> mesPersonnes) {
+        // 1. Demander le nom de la personne à modifier
+        // 2. Chercher la bonne personne dans la liste
+        // 3. Si la personne n'a pas été trouvée => on sort de la void (return)
+        // 4. Si la personne a été trouvée, on met à jour ses informations en les redemandant à l'utilisateur
+    }
+    static void AfficherMessagePersonnes(List<Personne> personnes) {
+        // on boucle sur l'ensemble des personnes de la liste
+        foreach (Personne personne in personnes) {
+            // affichage de la personne issue de la liste
+            AfficherMessagePersonne(personne);
+        }
     }
 
     static string DemanderString(string question) {

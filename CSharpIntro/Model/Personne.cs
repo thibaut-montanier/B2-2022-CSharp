@@ -9,11 +9,12 @@ namespace CSharpIntro.Model {
 
         public string Nom { get; set; }
 
+        public string Prenom { get; set; }
         public int Age { get; set; }
 
 
         public int Taille { get; set; }
 
-        
+
     }
 }

@@ -1,15 +1,20 @@
-﻿internal class Program {
+﻿using CSharpIntro.Model;
+
+internal class Program {
 
     private static void Main(string[] args) {
 
         //// demander le nom à l'utilisateur
+        Personne maPersonne;
 
-        string nom = DemanderString("Quel est ton nom ?");
-        int age = DemanderNumeric("Quel est ton age ?");
-        int taille = DemanderNumeric("Quel est ta taille ?");
+        maPersonne = new Personne();
+
+        maPersonne.Nom = DemanderString("Quel est ton nom ?");
+        maPersonne.Age = DemanderNumeric("Quel est ton age ?");
+        maPersonne.Taille = DemanderNumeric("Quel est ta taille ?");
 
         
-        AfficherMessageResultat(nom, age, taille);
+        AfficherMessagePersonne(maPersonne);
 
     }
 
@@ -41,14 +46,14 @@
     }
 
 
-    static void AfficherMessageResultat(string nom, int age, int taille) {
+    static void AfficherMessagePersonne(Personne personne) {
         string messageResultat;
-        if (age == 1) {
-            messageResultat = "Bonjour, tu t'appelles " + nom + ", tu as " + age + " an";
-        } else if (age == 0) {
+        if (personne.Age == 1) {
+            messageResultat = "Bonjour, tu t'appelles " + personne.Nom + ", tu as " + personne.Age + " an";
+        } else if (personne.Age == 0) {
             messageResultat = "Bonjour, tu es un tout jeune bébé";
         } else {
-            messageResultat = "Bonjour, tu t'appelles " + nom + ", tu as " + age + " ans";
+            messageResultat = "Bonjour, tu t'appelles " + personne.Nom + ", tu as " + personne.Age + " ans";
         }
         Console.WriteLine(messageResultat);
     }

@@ -3,20 +3,23 @@
 namespace CSharpIntro.Services {
     public class PersonnesService {
 
+        public Demande myDemande;
+
         private List<Personne> mesPersonnes;
 
         public PersonnesService() {
             this.mesPersonnes = new List<Personne>();
         }
-        public Personne CreerPersonne() {
+
+        public virtual Personne CreerPersonne() {
             Personne maPersonne;
 
             maPersonne = new Personne();
 
-            maPersonne.Nom = Demande.DemanderString("Quel est ton nom ?");
-            maPersonne.Prenom = Demande.DemanderString("Quel est ton prénom ?");
-            maPersonne.Age = Demande.DemanderNumeric("Quel est ton age ?");
-            maPersonne.Taille = Demande.DemanderNumeric("Quel est ta taille ?");
+            maPersonne.Nom = myDemande.DemanderString("Quel est ton nom ?");
+            maPersonne.Prenom = myDemande.DemanderString("Quel est ton prénom ?");
+            maPersonne.Age = myDemande.DemanderNumeric("Quel est ton age ?");
+            maPersonne.Taille = myDemande.DemanderNumeric("Quel est ta taille ?");
             // ajout de la personne à la liste
             AddPersonne(maPersonne);
             return maPersonne;
@@ -32,7 +35,7 @@ namespace CSharpIntro.Services {
             Personne personneAModifier = TrouvePersonne(mesPersonnes);
             // 3. Si la personne n'a pas été trouvée => on sort de la void (return)
             if (personneAModifier != null) {
-                personneAModifier.Nom = Demande.DemanderString("Quel est ton nom ?");
+                personneAModifier.Nom = myDemande.DemanderString("Quel est ton nom ?");
                 ///....
             }
             // 4. Si la personne a été trouvée, on met à jour ses informations en les redemandant à l'utilisateur
@@ -44,7 +47,7 @@ namespace CSharpIntro.Services {
         /// <returns></returns>
         public Personne TrouvePersonne(List<Personne> mesPersonnes) {
             // 1. Demander le nom de la personne à modifier
-            string NomPersonneAModifier = Demande.DemanderString(question: "Nom de la personne à modifier ?");
+            string NomPersonneAModifier = myDemande.DemanderString(question: "Nom de la personne à modifier ?");
             // 2. Chercher la bonne personne dans la liste
 
             Personne personneTrouvee = null;

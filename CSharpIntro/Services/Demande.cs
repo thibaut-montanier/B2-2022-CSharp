@@ -1,12 +1,13 @@
 ﻿
 namespace CSharpIntro.Services {
     public class Demande {
-        public static string DemanderString(string question) {
+        
+        public string DemanderString(string question) {
             Console.WriteLine(question);
             return Console.ReadLine();
         }
 
-        public static string DemanderString(string question, int TailleMinimum, int TailleMaximum) {
+        public string DemanderString(string question, int TailleMinimum, int TailleMaximum) {
             bool SaisieOK = false;
             string resultat = "";
             // tant que l'utilisateur n'a pas réalisé de saisie valide, on lui demande de saisir un numérique
@@ -22,7 +23,7 @@ namespace CSharpIntro.Services {
             }
             return resultat;
         }
-        public static int DemanderNumeric(string question) {
+        public int DemanderNumeric(string question) {
             int ageNumeric = 0;
             bool lUtilisateurASaisiUnNumericPositif = false; // l'utilisateur n'a pas encore réalisé de saisie valide
 

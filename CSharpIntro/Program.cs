@@ -15,17 +15,21 @@ internal class Program {
 "6. Afficher les matières (Nom, Code, Niveau, NbHeures)\n" +
 "7. Lier un enseignant à une matière\n" +
 "Q. Quitter";
-        PersonnesService personnesService = new PersonnesService();
+        Demande myDemande = new Demande();
+        PersonnesService myPersonnesService = new PersonnesService();
+        myPersonnesService.myDemande = myDemande;
+        
         while (!Quitter) {
 
-            string choix = Demande.DemanderString(MessageMenu, 1, 1);
+            string choix = myDemande.DemanderString(MessageMenu, 1, 1);
             if (choix == "1") {
                 // création de la personne
-                Personne maPersonne = personnesService.CreerPersonne();
+                // après
+                Personne maPersonne = myPersonnesService.CreerPersonne();
             } else if (choix == "2") {
-                Console.WriteLine(personnesService.AfficherMessagePersonnes());
+                Console.WriteLine(myPersonnesService.AfficherMessagePersonnes());
             } else if (choix == "3") {
-                personnesService.ModifierPersonneDansListe();
+                myPersonnesService.ModifierPersonneDansListe();
             } else if (choix == "Q") {
                 Quitter = true;
             }

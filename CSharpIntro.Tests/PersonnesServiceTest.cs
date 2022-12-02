@@ -1,18 +1,21 @@
 using CSharpIntro.Model;
 using CSharpIntro.Services;
+using CSharpIntro.Tests.Mock;
 using NUnit.Framework;
 using System.Security;
 
 namespace CSharpIntro.Tests {
-    public class Tests {
+    public class PersonnesServiceTest {
 
         private PersonnesService personnesService;
         [SetUp]
         public void Setup() {
             personnesService = new PersonnesService();
+            personnesService.myDemande = new Demande();
         }
 
-        
+        [Ignore("Ne fonctionne pas encore, besoin de faire un mock sur le service Demande")]
+        [Test]      
         public void CreerPersonneTest() {
             // on ne sait pas faire.
             Personne p = personnesService.CreerPersonne();

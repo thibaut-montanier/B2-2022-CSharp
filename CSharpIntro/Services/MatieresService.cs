@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace CSharpIntro.Services {
     public class MatieresService {
 
-        static Matiere CreerMatiere() {
+        Matiere CreerMatiere() {
             return new Matiere();
         }
 
-        static void AfficherMatieres() {
+        void AfficherMatieres() {
 
         }
     }

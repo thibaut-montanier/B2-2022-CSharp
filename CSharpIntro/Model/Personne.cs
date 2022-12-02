@@ -15,8 +15,5 @@ namespace CSharpIntro.Model {
 
         public int Taille { get; set; }
 
-
-        
-
     }
 }

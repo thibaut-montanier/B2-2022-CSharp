@@ -1,4 +1,5 @@
 ﻿using CSharpIntro.Model;
+using System.Reflection.Metadata.Ecma335;
 
 internal class Program {
 
@@ -9,8 +10,8 @@ internal class Program {
         string MessageMenu = "Menu\n" +
 "1. Créer une personne\n" +
 "2. Afficher la personne créée\n" +
-"3. Modifier Personne Dans Liste\n" + 
-"5. Creer une matière (Nom, Code, Niveau, NbHeures)\n"+
+"3. Modifier Personne Dans Liste\n" +
+"5. Creer une matière (Nom, Code, Niveau, NbHeures)\n" +
 "6. Afficher les matières (Nom, Code, Niveau, NbHeures)\n" +
 "7. Lier un enseignant à une matière\n" +
 "Q. Quitter";
@@ -48,11 +49,38 @@ internal class Program {
 
     static void ModifierPersonneDansListe(List<Personne> mesPersonnes) {
         // 1. Demander le nom de la personne à modifier
+        Personne personneAModifier = TrouvePersonne(mesPersonnes);
+        // 3. Si la personne n'a pas été trouvée => on sort de la void (return)
+        if (personneAModifier != null) {
+            personneAModifier.Nom = DemanderString("Quel est ton nom ?");
+            ///....
+        }
+        // 4. Si la personne a été trouvée, on met à jour ses informations en les redemandant à l'utilisateur
+    }
+    /// <summary>
+    /// Demande à l'utilisateur le nom de la personne à trouver et la cherche dans la liste
+    /// </summary>
+    /// <param name="mesPersonnes"></param>
+    /// <returns></returns>
+    static Personne TrouvePersonne(List<Personne> mesPersonnes) {
+        // 1. Demander le nom de la personne à modifier
         string NomPersonneAModifier = DemanderString(question: "Nom de la personne à modifier ?");
         // 2. Chercher la bonne personne dans la liste
-       
-        // 3. Si la personne n'a pas été trouvée => on sort de la void (return)
-        // 4. Si la personne a été trouvée, on met à jour ses informations en les redemandant à l'utilisateur
+
+        Personne personneTrouvee = null;
+        // parcourt de l'ensemble des personnes
+        foreach (Personne personne in mesPersonnes) {
+            // si le nom correspond => on sort récupère la personne dans la variable personneTrouvee et on sort de la boucle
+            if (personne.Nom == NomPersonneAModifier) {
+                personneTrouvee = personne;
+                break;
+            }
+        }
+        return personneTrouvee;
+
+
+        // ou utilisation du first or Default
+        return mesPersonnes.FirstOrDefault(pers => pers.Nom == NomPersonneAModifier);
     }
     static string AfficherMessagePersonnes(List<Personne> personnes) {
         // on boucle sur l'ensemble des personnes de la liste

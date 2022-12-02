@@ -3,8 +3,12 @@
 namespace CSharpIntro.Services {
     public class PersonnesService {
 
-        private static List<Personne> mesPersonnes = new List<Personne>();
-        public static Personne CreerPersonne() {
+        private List<Personne> mesPersonnes;
+
+        public PersonnesService() {
+            this.mesPersonnes = new List<Personne>();
+        }
+        public Personne CreerPersonne() {
             Personne maPersonne;
 
             maPersonne = new Personne();
@@ -18,12 +22,12 @@ namespace CSharpIntro.Services {
             return maPersonne;
         }
 
-        public static void AddPersonne(Personne p) {
+        public void AddPersonne(Personne p) {
             mesPersonnes.Add(p);
         }
 
 
-        public static void ModifierPersonneDansListe() {
+        public void ModifierPersonneDansListe() {
             // 1. Demander le nom de la personne à modifier
             Personne personneAModifier = TrouvePersonne(mesPersonnes);
             // 3. Si la personne n'a pas été trouvée => on sort de la void (return)
@@ -38,7 +42,7 @@ namespace CSharpIntro.Services {
         /// </summary>
         /// <param name="mesPersonnes"></param>
         /// <returns></returns>
-        public static Personne TrouvePersonne(List<Personne> mesPersonnes) {
+        public Personne TrouvePersonne(List<Personne> mesPersonnes) {
             // 1. Demander le nom de la personne à modifier
             string NomPersonneAModifier = Demande.DemanderString(question: "Nom de la personne à modifier ?");
             // 2. Chercher la bonne personne dans la liste
@@ -61,7 +65,7 @@ namespace CSharpIntro.Services {
 
 
 
-        public static string AfficherMessagePersonnes() {
+        public string AfficherMessagePersonnes() {
             // on boucle sur l'ensemble des personnes de la liste
             List<string> resultats = new List<string>();
             foreach (Personne personne in mesPersonnes) {
@@ -74,7 +78,7 @@ namespace CSharpIntro.Services {
 
 
 
-        public static string AfficherMessagePersonne(Personne personne) {
+        public string AfficherMessagePersonne(Personne personne) {
             string messageResultat;
 
             if (personne.Age == 1) {

@@ -11,14 +11,16 @@ namespace CSharpIntro.Tests {
         [SetUp]
         public void Setup() {
             personnesService = new PersonnesService();
-            personnesService.myDemande = new Demande();
+            personnesService.myDemande = new DemandeMock();
         }
 
-        [Ignore("Ne fonctionne pas encore, besoin de faire un mock sur le service Demande")]
         [Test]      
         public void CreerPersonneTest() {
             // on ne sait pas faire.
             Personne p = personnesService.CreerPersonne();
+
+            Assert.AreEqual("NOMDEFAMILLE", p.Nom);
+            Assert.AreEqual("Prenom", p.Prenom);
 
             Assert.IsNotNull(p);
         }

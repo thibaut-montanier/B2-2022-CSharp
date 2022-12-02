@@ -82,7 +82,7 @@ namespace CSharpIntro.Services {
                 // messageResultat = string.Format("Bonjour, tu t'appelles {0} {1}, tu as {2} an", personne.Prenom, personne.Nom, personne.Age);
                 messageResultat = $"Bonjour, tu t'appelles {personne.Prenom} {personne.Nom}, tu as {personne.Age} an. Tu mesures {personne.Taille} cm.";
             } else if (personne.Age == 0) {
-                messageResultat = "Bonjour, tu es un tout jeune bébé";
+                messageResultat = "Bonjour, tu es un tout jeune bébé.";
             } else {
                 messageResultat = $"Bonjour, tu t'appelles {personne.Prenom} {personne.Nom}, tu as {personne.Age} ans. Tu mesures {personne.Taille} cm.";
             }

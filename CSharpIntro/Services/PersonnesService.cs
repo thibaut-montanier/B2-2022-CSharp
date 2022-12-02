@@ -1,7 +1,7 @@
 ﻿using CSharpIntro.Model;
 
 namespace CSharpIntro.Services {
-    internal class PersonnesService {
+    public class PersonnesService {
 
         private static List<Personne> mesPersonnes = new List<Personne>();
         public static Personne CreerPersonne() {
@@ -14,8 +14,12 @@ namespace CSharpIntro.Services {
             maPersonne.Age = Demande.DemanderNumeric("Quel est ton age ?");
             maPersonne.Taille = Demande.DemanderNumeric("Quel est ta taille ?");
             // ajout de la personne à la liste
-            mesPersonnes.Add(maPersonne);
+            AddPersonne(maPersonne);
             return maPersonne;
+        }
+
+        public static void AddPersonne(Personne p) {
+            mesPersonnes.Add(p);
         }
 
 
@@ -76,11 +80,11 @@ namespace CSharpIntro.Services {
             if (personne.Age == 1) {
                 // messageResultat = "Bonjour, tu t'appelles " + personne.Prenom + " " + personne.Nom + ", tu as " + personne.Age + " an";
                 // messageResultat = string.Format("Bonjour, tu t'appelles {0} {1}, tu as {2} an", personne.Prenom, personne.Nom, personne.Age);
-                messageResultat = $"Bonjour, tu t'appelles {personne.Prenom} {personne.Nom}, tu as {personne.Age} an";
+                messageResultat = $"Bonjour, tu t'appelles {personne.Prenom} {personne.Nom}, tu as {personne.Age} an. Tu mesures {personne.Taille} cm.";
             } else if (personne.Age == 0) {
                 messageResultat = "Bonjour, tu es un tout jeune bébé";
             } else {
-                messageResultat = "Bonjour, tu t'appelles " + personne.Prenom + " " + personne.Nom + ", tu as " + personne.Age + " ans";
+                messageResultat = $"Bonjour, tu t'appelles {personne.Prenom} {personne.Nom}, tu as {personne.Age} ans. Tu mesures {personne.Taille} cm.";
             }
             return messageResultat;
         }

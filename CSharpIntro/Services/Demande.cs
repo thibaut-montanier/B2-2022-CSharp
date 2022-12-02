@@ -1,6 +1,6 @@
 ﻿
 namespace CSharpIntro.Services {
-    internal class Demande {
+    public class Demande {
         public static string DemanderString(string question) {
             Console.WriteLine(question);
             return Console.ReadLine();

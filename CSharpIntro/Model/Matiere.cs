@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CSharpIntro.Model {
-    public  class Matiere {
+    public class Matiere {
 
         public string Name { get; set; }
         public string Code { get; set; }

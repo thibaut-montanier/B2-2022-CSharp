@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CSharpIntro.Services {
-    internal class MatieresService {
+    public class MatieresService {
 
         static Matiere CreerMatiere() {
             return new Matiere();

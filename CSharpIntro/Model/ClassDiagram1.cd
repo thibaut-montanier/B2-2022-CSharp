@@ -1,14 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="CSharpIntro.Model.Personne">
-    <Position X="2.75" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAgAAAAAEAAAAAAACAAAAAAACAAAAAAAAA=</HashCode>
-      <FileName>Model\Personne.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="CSharpIntro.Model.Matiere">
-    <Position X="7" Y="1.25" Width="1.5" />
+    <Position X="3" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAACAgAAQAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Model\Matiere.cs</FileName>
@@ -16,6 +9,47 @@
     <ShowAsAssociation>
       <Property Name="EstEnseignePar" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="CSharpIntro.Model.Personne">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAEAAAAAAACAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Model\Personne.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpIntro.Services.MatieresService">
+    <Position X="2.5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAEAAAAAAAAAAACAAAAAAAAAAAAAIABA=</HashCode>
+      <FileName>Services\MatieresService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="myPersonnesService" />
+      <Field Name="myDemande" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="mesMatieres" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CSharpIntro.Services.PersonnesService">
+    <Position X="7.5" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAgAAAAAAAAAAAgAAAAQAAAAAAICAAQA=</HashCode>
+      <FileName>Services\PersonnesService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="myDemande" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="mesPersonnes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CSharpIntro.Services.Demande">
+    <Position X="5.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQ=</HashCode>
+      <FileName>Services\Demande.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

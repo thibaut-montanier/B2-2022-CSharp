@@ -20,8 +20,13 @@ namespace CSharpIntro.Services {
             maMatiere.Code = myDemande.DemanderString("Code de la matière ? "); 
             maMatiere.Niveau = myDemande.DemanderString("Niveau de la matière ? "); 
             maMatiere.NbHeures = myDemande.DemanderNumeric("Nombre d'heures ?");
-
+            // recherche de l'enseignant
             maMatiere.EstEnseignePar = myPersonnesService.TrouvePersonne("Nom de l'enseignant ?");
+
+            // ajout de la matière enseignée à la liste des matières enseignées par l'enseignant
+            if (maMatiere.EstEnseignePar != null) {
+                maMatiere.EstEnseignePar.Enseigne.Add(maMatiere);
+            }
 
             mesMatieres.Add(maMatiere);
             return maMatiere;

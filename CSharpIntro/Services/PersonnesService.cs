@@ -93,6 +93,13 @@ namespace CSharpIntro.Services {
             } else {
                 messageResultat = $"Bonjour, tu t'appelles {personne.Prenom} {personne.Nom}, tu as {personne.Age} ans. Tu mesures {personne.Taille} cm.";
             }
+
+            // Ajout de la liste des matières enseignés au message de présentation de la personne
+            List<string> nomMatieresEnseignees = new List<string>();
+            foreach(Matiere m in personne.Enseigne) {
+                nomMatieresEnseignees.Add(m.Code);
+            }
+            messageResultat += "\nEnseigne : " + string.Join(",", nomMatieresEnseignees);
             return messageResultat;
         }
     }

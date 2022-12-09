@@ -15,5 +15,7 @@ namespace CSharpIntro.Model {
 
         public int Taille { get; set; }
 
+        public List<Matiere> Enseigne { get;set ; } = new List<Matiere>();
+
     }
 }

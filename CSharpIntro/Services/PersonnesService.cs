@@ -32,7 +32,7 @@ namespace CSharpIntro.Services {
 
         public void ModifierPersonneDansListe() {
             // 1. Demander le nom de la personne à modifier
-            Personne personneAModifier = TrouvePersonne(mesPersonnes);
+            Personne personneAModifier = TrouvePersonne(question: "Nom de la personne à modifier ?");
             // 3. Si la personne n'a pas été trouvée => on sort de la void (return)
             if (personneAModifier != null) {
                 personneAModifier.Nom = myDemande.DemanderString("Quel est ton nom ?");
@@ -45,9 +45,9 @@ namespace CSharpIntro.Services {
         /// </summary>
         /// <param name="mesPersonnes"></param>
         /// <returns></returns>
-        public Personne TrouvePersonne(List<Personne> mesPersonnes) {
+        public Personne TrouvePersonne(string question ) {
             // 1. Demander le nom de la personne à modifier
-            string NomPersonneAModifier = myDemande.DemanderString(question: "Nom de la personne à modifier ?");
+            string NomPersonneAModifier = myDemande.DemanderString(question);
             // 2. Chercher la bonne personne dans la liste
 
             Personne personneTrouvee = null;

@@ -11,5 +11,8 @@ namespace CSharpIntro.Model {
         public string Code { get; set; }
         public string Niveau { get; set; }
         public int NbHeures { get; set; }
+
+
+        public Personne EstEnseignePar { get; set; }
     }
 }

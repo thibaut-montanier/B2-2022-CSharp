@@ -18,7 +18,11 @@ internal class Program {
         Demande myDemande = new Demande();
         PersonnesService myPersonnesService = new PersonnesService();
         myPersonnesService.myDemande = myDemande;
-        
+
+        MatieresService myMatieresService = new MatieresService();
+        myMatieresService.myDemande = myDemande;
+        myMatieresService.myPersonnesService = myPersonnesService;
+
         while (!Quitter) {
 
             string choix = myDemande.DemanderString(MessageMenu, 1, 1);
@@ -30,6 +34,10 @@ internal class Program {
                 Console.WriteLine(myPersonnesService.AfficherMessagePersonnes());
             } else if (choix == "3") {
                 myPersonnesService.ModifierPersonneDansListe();
+            } else if (choix == "5") {
+                myMatieresService.CreerMatiere();
+            } else if (choix == "6") {
+                myMatieresService.AfficherMatieres();
             } else if (choix == "Q") {
                 Quitter = true;
             }

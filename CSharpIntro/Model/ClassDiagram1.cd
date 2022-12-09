@@ -1,11 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="CSharpIntro.Model.Personne">
-    <Position X="6.5" Y="1.25" Width="1.5" />
+    <Position X="2.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAEAAAAAAACAAAAAAACAAAAAAAAA=</HashCode>
       <FileName>Model\Personne.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpIntro.Model.Matiere">
+    <Position X="7" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAACAgAAQAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Model\Matiere.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="EstEnseignePar" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
